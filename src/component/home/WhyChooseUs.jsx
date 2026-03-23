@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
                     <div className="flex justify-center">
                         <div className="w-[330px] h-[330px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[2px] border-[#3b82f6] shadow-lg">
                             <img
-                                src="./w1.jpg"
+                                src="./hw.jpg"
                                 alt="student"
                                 className="w-full h-full object-cover"
                             />

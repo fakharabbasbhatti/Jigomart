@@ -13,7 +13,7 @@ export default function Hero() {
     <div className="relative w-full h-[95vh] font-[Poppins]">
       {/* Background Image */}
       <img
-        src="./f1.jpg"
+        src="./hb.jpg"
         alt="students"
         className="w-full h-full object-cover"
       />

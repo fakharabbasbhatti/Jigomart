@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../component/home/Hero";
 import FeaturedProducts from "../component/home/FeaturedProducts";
+import PopularCategories from "../component/home/PopularCategories";
 import WhyChooseUs from "../component/home/WhyChooseUs";
 import AmbassadorSection from "../component/home/AmbassadorSection";
 import FAQSection from "../component/home/FAQSection";

@@ -10,7 +10,7 @@ const products = [
     university: "University of Lagos (UNILAG)",
     price: "₦650,000",
     rating: 4.7,
-    image: "./p1.jpg",
+    image: "./hp.jpg",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const products = [
     university: "Lagos State University (LASU)",
     price: "₦7,000",
     rating: 4.9,
-    image: "./p2.jpg",
+    image: "./hp2.jpg",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const products = [
     university: "Lagos State University (LASU)",
     price: "₦45,000",
     rating: 4.5,
-    image: "./p3.jpg",
+    image: "./hp3.jpg",
   },
 ];
 
