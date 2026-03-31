@@ -10,6 +10,7 @@ import Footer from "./component/comman/Footer";
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Ambassador from "./pages/Ambassador";
 
 // ------------------ Layout Component ------------------
 const Layout = () => {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
+      { path: "ambassador", element: <Ambassador /> }
     ],
   },
 ]);

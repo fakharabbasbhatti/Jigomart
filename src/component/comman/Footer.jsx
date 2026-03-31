@@ -12,11 +12,6 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-1">
-      
-      {/* Stylized M */}
-      <span className="text-3xl font-bold font-serif bg-gradient-to-r from-[#3b82f6] to-[#7d4cdb] bg-clip-text text-transparent">
-  M
-</span>
 
       {/* Text */}
       <h1 className="text-2xl font-semibold tracking-wide leading-none">
