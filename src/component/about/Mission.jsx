@@ -1,0 +1,40 @@
+import React from "react";
+
+const Mission = () => {
+  return (
+    <section className="mt-20 px-6 mb-10">
+      <div className="max-w-5xl mx-auto">
+        
+        <div className="relative overflow-hidden rounded-xl p-10 md:p-14 text-center text-white shadow-2xl">
+          
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#6C4EFF] to-[#7A5CFF]"></div>
+
+          {/* Glow Effect */}
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+
+          {/* Content */}
+          <div className="relative z-10">
+            
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-wide">
+              Our Mission
+            </h3>
+
+            <p className="text-sm md:text-base max-w-3xl mx-auto leading-relaxed text-white/90">
+              We’re redefining how students buy and sell on campus — building a
+              platform that promotes trust, affordability, and student-to-student
+              connection. With JigoMart, every transaction supports a student.
+              <span className="block mt-2 font-medium text-white">
+                It’s not just commerce — it’s community.
+              </span>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Mission;
