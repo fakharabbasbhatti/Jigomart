@@ -11,6 +11,11 @@ import Footer from "./component/comman/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Ambassador from "./pages/Ambassador";
+import Productspage from "./pages/Productspage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+
 
 // ------------------ Layout Component ------------------
 const Layout = () => {
@@ -33,7 +38,11 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
-      { path: "ambassador", element: <Ambassador /> }
+      { path: "ambassador", element: <Ambassador /> },
+      { path: "product", element: <Productspage /> },
+      { path: "product/:id", element: <ProductDetailPage /> },
+      { path: "cart", element: <CartPage /> },
+      { path: "checkout", element: <CheckoutPage /> }
     ],
   },
 ]);
