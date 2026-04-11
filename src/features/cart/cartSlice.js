@@ -1,7 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// 🔥 safe localStorage
+const getCartFromStorage = () => {
+  try {
+    const data = localStorage.getItem("cartItems");
+    return data ? JSON.parse(data) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveToStorage = (cartItems) => {
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
+
 const initialState = {
-  cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
+  cartItems: getCartFromStorage(),
 };
 
 const cartSlice = createSlice({
@@ -10,23 +24,56 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = action.payload;
-      const existing = state.cartItems.find(i => i.id === item.id);
-      if (existing) existing.quantity += item.quantity || 1;
-      else state.cartItems.push({ ...item, quantity: item.quantity || 1 });
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
+      // 🔥 IMAGE FIX
+      const newItem = {
+        ...item,
+        quantity: item.quantity ? Number(item.quantity) : 1,
+        image:
+          item.thumbnail ||
+          item.image ||
+          (item.images ? item.images[0] : ""),
+      };
+
+      const existing = state.cartItems.find((i) => i.id === newItem.id);
+
+      if (existing) {
+        existing.quantity += newItem.quantity;
+      } else {
+        state.cartItems.push(newItem);
+      }
+
+      saveToStorage(state.cartItems);
     },
+
     removeFromCart: (state, action) => {
-      state.cartItems = state.cartItems.filter(i => i.id !== action.payload);
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      state.cartItems = state.cartItems.filter(
+        (i) => i.id !== action.payload
+      );
+      saveToStorage(state.cartItems);
     },
+
     updateQuantity: (state, action) => {
       const { id, quantity } = action.payload;
-      const item = state.cartItems.find(i => i.id === id);
-      if (item) item.quantity = quantity;
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
+      const item = state.cartItems.find((i) => i.id === id);
+      if (item) item.quantity = Number(quantity);
+
+      saveToStorage(state.cartItems);
+    },
+
+    clearCart: (state) => {
+      state.cartItems = [];
+      saveToStorage([]);
     },
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  updateQuantity,
+  clearCart,
+} = cartSlice.actions;
+
 export default cartSlice.reducer;

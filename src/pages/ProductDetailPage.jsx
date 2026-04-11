@@ -1,48 +1,49 @@
-import React from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import ProductDetailCard from "../../src/component/comman/ProductDetailCard";
+import { useDispatch, useSelector } from "react-redux";
+import { loadProductById } from "../features/products/productsSlice";
+import { addToCart } from "../features/cart/cartSlice";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
-  const product = useSelector((state) =>
-    state.products.items.find((p) => p.id === parseInt(id))
+  const product = useSelector(
+    (state) => state.products.selectedProduct
   );
 
+  useEffect(() => {
+    dispatch(loadProductById(id));
+  }, [id, dispatch]);
+
+  if (!product) {
+    return <p className="text-center mt-10">Loading...</p>;
+  }
+
   return (
-    <div className="bg-gray-50 min-h-screen py-10">
-      <div className="max-w-6xl mx-auto px-4">
+    <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow">
 
-        {/* Header / Breadcrumb */}
-        <div className="mb-6 text-sm text-gray-500">
-          Home / Products / <span className="text-gray-800 font-medium">Details</span>
-        </div>
+      {/* 🟢 IMAGE SECTION (FIXED) */}
+      <img
+        src={product.thumbnail}
+        alt={product.title}
+        className="w-full h-96 object-cover rounded-lg"
+      />
 
-        {/* Content */}
-        {product ? (
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10 transition hover:shadow-xl">
-            <ProductDetailCard product={product} />
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center text-center mt-20">
-            <div className="text-6xl mb-4">😕</div>
-            <h2 className="text-2xl font-semibold text-gray-700">
-              Product not found
-            </h2>
-            <p className="text-gray-500 mt-2">
-              The product you are looking for does not exist or was removed.
-            </p>
+      {/* 🟢 DETAILS */}
+      <h1 className="text-2xl font-bold mt-4">{product.title}</h1>
+      <p className="text-gray-600 mt-2">{product.description}</p>
+      <p className="text-xl font-bold mt-2">${product.price}</p>
 
-            <button
-              onClick={() => window.history.back()}
-              className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-            >
-              Go Back
-            </button>
-          </div>
-        )}
-      </div>
+      {/* 🟢 ADD TO CART */}
+      <button
+        onClick={() =>
+          dispatch(addToCart({ ...product, quantity: 1 }))
+        }
+        className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg"
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }
