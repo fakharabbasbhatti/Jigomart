@@ -13,7 +13,7 @@ const Hero = () => {
       ></div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-xl text-white">
@@ -26,11 +26,6 @@ const Hero = () => {
           Ambassador Program empowers active, social, and creative students to
           represent JigoMart in their universities.
         </p>
-
-        {/* Optional CTA button */}
-        <button className="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-2 rounded-md font-medium cursor-pointer">
-          Join Now
-        </button>
       </div>
     </section>
   );
