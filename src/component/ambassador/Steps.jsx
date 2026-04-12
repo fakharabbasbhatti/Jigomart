@@ -12,42 +12,43 @@ const Steps = () => {
   const steps = [
     {
       icon: <FaUserCheck />,
-      title: "Create an Account",
-      desc: "Create an account to become an ambassador.",
+      title: "Create Your Account",
+      desc: "Sign up as a student to start buying and selling campus products like books, laptops, notes, and gadgets.",
     },
     {
       icon: <FaCheckCircle />,
-      title: "Get Verified",
-      desc: "We'll review your details and approve your application.",
+      title: "Verify Your Profile",
+      desc: "Complete your student verification to build trust and access full marketplace features.",
     },
     {
       icon: <FaShareAlt />,
-      title: "Receive Your Referral",
-      desc: "Once approved, you'll get a unique referral link to invite sellers and buyers.",
+      title: "List or Discover Products",
+      desc: "Upload your unused items or browse listings from other students in your campus marketplace.",
     },
     {
       icon: <FaBullhorn />,
-      title: "Promote JigoMart",
-      desc: "Share your link on social media, class groups, and among friends.",
+      title: "Start Trading on Campus",
+      desc: "Share listings, connect with buyers or sellers, and grow your presence in the student community.",
     },
     {
       icon: <FaMoneyBillWave />,
-      title: "Earn Commission",
-      desc: "Every time someone signs up and transacts through your link, you earn commissions.",
+      title: "Earn or Save Money",
+      desc: "Sell unused items for profit or buy affordable second-hand campus products at lower prices.",
     },
     {
       icon: <FaWallet />,
-      title: "Withdraw Earnings",
-      desc: "Once your commission reaches the minimum amount, withdraw to your bank account.",
+      title: "Secure Payments & Withdrawals",
+      desc: "All transactions are protected with escrow, ensuring safe payments and easy withdrawals.",
     },
   ];
 
   return (
     <section className="py-16 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
+
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#6C4EFF] mb-12 text-center">
-          How it works (Step by Step)
+          How JigoMart Works
         </h2>
 
         {/* Steps Grid */}
@@ -61,7 +62,8 @@ const Steps = () => {
               {/* Icon */}
               <div className="bg-[#EDEBFF] group-hover:bg-[#6C4EFF] w-12 h-12 flex items-center justify-center rounded-full mb-4 transition">
                 {React.cloneElement(step.icon, {
-                  className: "text-[#6C4EFF] group-hover:text-white w-6 h-6",
+                  className:
+                    "text-[#6C4EFF] group-hover:text-white w-6 h-6",
                 })}
               </div>
 
@@ -74,6 +76,7 @@ const Steps = () => {
               <p className="text-gray-300 text-sm leading-relaxed">
                 {step.desc}
               </p>
+
             </div>
           ))}
         </div>

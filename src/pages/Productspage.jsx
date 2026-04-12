@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../src/component/product/ProductCard";
 import { loadProducts } from "../features/products/productsSlice";
+import ProductHero from "../component/product/ProductHero";
 
 export default function ProductsPage() {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export default function ProductsPage() {
   };
 
   return (
+    <div>
+<ProductHero/>
     <div className="bg-gray-50 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4">
 
@@ -33,7 +36,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6">
           {products.slice(0, visible).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -52,6 +55,7 @@ export default function ProductsPage() {
         )}
 
       </div>
+    </div>
     </div>
   );
 }

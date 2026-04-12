@@ -1,10 +1,12 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   useEffect(() => {
     const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -32,19 +34,26 @@ export default function Hero() {
         </h1>
 
         <p className="mt-4 text-gray-200 max-w-xl md:max-w-2xl text-sm sm:text-base md:text-lg">
-          Buy and sell textbooks, electronics, and campus essentials with fellow
-          students. Plus, earn extra income through our Ambassador program!
+          Discover, buy, and sell campus products like textbooks, laptops,
+          notes, calculators, and student essentials — all in one trusted
+          marketplace.
         </p>
 
         {/* Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-          <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#4a90e2] text-white px-5 py-2.5 rounded-lg font-medium hover:bg-[#3b7cc4] transition cursor-pointer">
-            Become a Seller <MdOutlineShoppingCart />
-          </button>
+          <Link to="/product">
+            <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#4a90e2] text-white px-5 py-2.5 rounded-lg font-medium hover:bg-[#3b7cc4] transition cursor-pointer">
+              Become a Seller <MdOutlineShoppingCart />
+            </button>
+          </Link>
 
-          <button className="w-full sm:w-auto border border-white text-white px-5 py-2.5 rounded-lg font-medium hover:bg-white hover:text-black transition cursor-pointer">
-            Shop
-          </button>
+          <Link to="/ambassador">
+            <button className="w-full sm:w-auto border border-white text-white px-5 py-2.5 rounded-lg font-medium hover:bg-white hover:text-black transition cursor-pointer">
+              Ambassador
+            </button>
+          </Link>
+
+         
         </div>
 
         {/* Stats */}

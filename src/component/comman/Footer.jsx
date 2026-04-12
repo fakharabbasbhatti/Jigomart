@@ -26,11 +26,11 @@ export default function Footer() {
             <div className="mt-4 space-y-2 text-sm text-[#d1d5db]">
               <div className="flex items-center gap-2">
                 <MdEmail size={16} className="text-[#7D4CDB]"/>
-                <span>emmaogbidi@gmail.com</span>
+                <span>fakharabbasbhatti333@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MdPhoneInTalk size={16} className="text-[#7D4CDB]"/>
-                <span>+234 7086984841</span>
+                <span>+92 322 9234045</span>
               </div>
             </div>
           </div>
@@ -40,10 +40,10 @@ export default function Footer() {
             <h3 className="font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2 text-sx text-[#d1d5db]">
               <li>Home</li>
-              <li>Shop</li>
-              <li>Sell</li>
-              <li>FAQs</li>
-              <li>Contact Us</li>
+              <li>About</li>
+              <li>Product</li>
+              <li>Ambassador</li>
+             
             </ul>
           </div>
 

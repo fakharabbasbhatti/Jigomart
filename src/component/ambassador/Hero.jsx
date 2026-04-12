@@ -1,33 +1,45 @@
-import React from "react";
-import bgImage from "../../assets/abh.jpg"; // 👈 Apni image yahan import karo
+import { useEffect } from "react";
+import bgImage from "../../assets/abh.jpg";
 
 const Hero = () => {
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  }, []);
+
   return (
-    <section
-      className="relative h-96 flex items-center px-6 md:px-16 bg-gray-100 font-sans"
-    >
+    <div className="relative w-full h-[95vh] font-[Poppins]">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      ></div>
+      <img
+        src={bgImage}
+        alt="student ambassador"
+        className="w-full h-full object-cover"
+      />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-xl text-white">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          Become a JigoMart Student Ambassador
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold text-white leading-snug md:leading-tight">
+          Become a{" "}
+          <span className="text-[#4a90e2] font-bold">
+            Student Ambassador
+          </span>
         </h1>
 
-        <p className="text-base md:text-lg leading-relaxed mb-6">
-          Help grow your campus marketplace and earn rewards. Our Student
-          Ambassador Program empowers active, social, and creative students to
-          represent JigoMart in their universities.
+        <p className="mt-4 text-gray-200 max-w-xl md:max-w-2xl text-sm sm:text-base md:text-lg">
+          Represent JigoMart at your university and earn rewards while growing
+          the campus marketplace.
         </p>
       </div>
-    </section>
+
+      {/* Bottom Gradient Bar */}
+      <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-r from-[#4a90e2] to-[#7d4cdb]"></div>
+    </div>
   );
 };
 

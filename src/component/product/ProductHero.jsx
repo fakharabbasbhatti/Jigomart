@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import bgImage from "../../assets/abh.jpg";
 
-export default function Hero() {
+export default function ProductHero() {
   useEffect(() => {
     const link = document.createElement("link");
     link.href =
@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Background Image */}
       <img
         src={bgImage}
-        alt="about background"
+        alt="product hero"
         className="w-full h-full object-cover"
       />
 
@@ -25,12 +25,13 @@ export default function Hero() {
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold text-white leading-snug md:leading-tight">
-          About{" "}
-          <span className="text-[#4a90e2] font-bold">Us</span>
+          Product{" "}
+          <span className="text-[#4a90e2] font-bold">Page</span>
         </h1>
 
         <p className="mt-4 text-gray-200 max-w-xl md:max-w-2xl text-sm sm:text-base md:text-lg">
-          Making Campus Buying & Selling Easier, Safer, and Smarter.
+          Discover and explore campus products easily with trusted listings,
+          fair prices, and a simple buying experience.
         </p>
       </div>
 

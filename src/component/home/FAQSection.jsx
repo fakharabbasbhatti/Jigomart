@@ -3,39 +3,66 @@ import { FiPlus } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(1);
+  const [openIndex, setOpenIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState("buyers");
 
-  const faqs = [
+  const buyerFaqs = [
     {
-      question: "How do i create account an account ?",
-      answer: "",
-    },
-    {
-      question: "How do i buy a product?",
+      question: "How do I create an account?",
       answer:
-        "Browse listings, add items to your cart, and follow the checkout process to complete your order.",
+        "Click on Sign Up, fill in your student details, and verify your account to start buying products on JigoMart.",
     },
     {
-      question: "Is it safe to use the platform?",
-      answer: "",
+      question: "How do I buy a product?",
+      answer:
+        "Browse products like textbooks, laptops, notes, and accessories. Add to cart and complete checkout to purchase.",
     },
     {
-      question: "Are there any fees to sell on the platform ?",
-      answer: "",
+      question: "Is it safe to buy products?",
+      answer:
+        "Yes, all sellers are verified students and we encourage safe transactions and meetups.",
     },
     {
-      question: "How do i build trust with buyers?",
-      answer: "",
+      question: "Can I return a product?",
+      answer:
+        "Return policy depends on the seller. Always check product details before buying.",
     },
   ];
+
+  const sellerFaqs = [
+    {
+      question: "How do I sell a product?",
+      answer:
+        "Go to Sell page, upload product images, add description, price, and publish your listing instantly.",
+    },
+    {
+      question: "What products can I sell?",
+      answer:
+        "You can sell textbooks, laptops, gadgets, notes, and other student-related items.",
+    },
+    {
+      question: "Are there any selling fees?",
+      answer:
+        "Listing is free. A small commission may apply after a successful sale.",
+    },
+    {
+      question: "How do I get more sales?",
+      answer:
+        "Upload clear images, write good descriptions, and price your products fairly for faster sales.",
+    },
+  ];
+
+  const faqs = activeTab === "buyers" ? buyerFaqs : sellerFaqs;
 
   return (
     <section className="bg-[#f5f7fb] py-20 px-6 font-[Poppins]">
       <div className="max-w-3xl mx-auto">
 
         {/* Top Text */}
-        
-<p className="text-start text-lg text-purple-500 italic mb-4 sm:ml-8">FAQ</p>
+        <p className="text-start text-lg text-purple-500 italic mb-4 sm:ml-8">
+          FAQ
+        </p>
+
         <h2 className="text-center text-4xl md:text-5xl font-semibold text-gray-800 mt-2">
           <span className="bg-purple-500 text-white px-3 py-1 rounded-lg">
             Frequently
@@ -46,17 +73,40 @@ export default function FAQSection() {
         {/* Tabs */}
         <div className="flex justify-center mt-12">
           <div className="flex border border-blue-500 rounded-md overflow-hidden">
-            <button className="px-10 py-3 bg-blue-500 text-white text-sm">
+
+            <button
+              onClick={() => {
+                setActiveTab("buyers");
+                setOpenIndex(0);
+              }}
+              className={`px-10 py-3 text-sm transition ${
+                activeTab === "buyers"
+                  ? "bg-blue-500 text-white"
+                  : "text-blue-500"
+              }`}
+            >
               Buyers
             </button>
-            <button className="px-10 py-3 text-blue-500 text-sm bg-transparent">
+
+            <button
+              onClick={() => {
+                setActiveTab("sellers");
+                setOpenIndex(0);
+              }}
+              className={`px-10 py-3 text-sm transition ${
+                activeTab === "sellers"
+                  ? "bg-blue-500 text-white"
+                  : "text-blue-500"
+              }`}
+            >
               Sellers
             </button>
+
           </div>
         </div>
 
         {/* FAQ Items */}
-        <div className="mt-12 space-y-6 ">
+        <div className="mt-12 space-y-6">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -77,7 +127,7 @@ export default function FAQSection() {
                   )}
                 </div>
 
-                {isOpen && faq.answer && (
+                {isOpen && (
                   <p className="mt-4 text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl">
                     {faq.answer}
                   </p>
@@ -86,6 +136,7 @@ export default function FAQSection() {
             );
           })}
         </div>
+
       </div>
     </section>
   );

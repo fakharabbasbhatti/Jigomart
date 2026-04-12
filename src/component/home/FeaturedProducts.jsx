@@ -95,27 +95,11 @@ const FeaturedProducts = () => {
               <p className="text-purple-600 font-semibold mt-3">
                 {item.price}
               </p>
-
-              {/* Buttons */}
-              <div className="flex gap-3 mt-4">
-                <button className="flex-1 border border-purple-500 text-purple-500 py-2 rounded-lg hover:bg-purple-50 transition cursor-pointer">
-                  Add to Cart
-                </button>
-                <button className="flex-1 border border-purple-500 text-purple-500 py-2 rounded-lg hover:bg-purple-50 transition cursor-pointer">
-                  View Details
-                </button>
-              </div>
-            </div>
+  </div>
           </div>
         ))}
       </div>
 
-      {/* Footer Button */}
-      <div className="text-center mt-10">
-        <button className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition cursor-pointer">
-          View All Products →
-        </button>
-      </div>
        </div>
     </div>
   );

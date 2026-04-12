@@ -1,43 +1,43 @@
 import React, { useEffect } from "react";
-import { FiLayers } from "react-icons/fi";
-import { FaPlug } from "react-icons/fa";
-import { BiChair } from "react-icons/bi";
-import { GiHighHeel } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
+import { GiLipstick, GiPerfumeBottle } from "react-icons/gi";
+import { FaShoppingBasket } from "react-icons/fa";
+import { MdChair } from "react-icons/md";
 
 const categories = [
   {
     id: 1,
-    title: "Textbooks",
-    items: "2,300+ items",
-    color:"#61B2E4",
-    icon: <FiLayers />,
+    title: "Beauty",
+    items: "300+ items",
+    color: "#E91E63",
+    icon: <GiLipstick />,
   },
   {
     id: 2,
-    title: "Electronics",
-    items: "1,800+ items",
-    color:"#F4AA41",
-    icon: <FaPlug />,
+    title: "Fragrances",
+    items: "100+ items",
+    color: "#9C27B0",
+    icon: <GiPerfumeBottle />,
   },
   {
     id: 3,
-    title: "Furnitures",
-    items: "800+ items",
-    color:"#77381F",
-    icon: <BiChair />,
+    title: "Groceries",
+    items: "50+ items",
+    color: "#4CAF50",
+    icon: <FaShoppingBasket />,
   },
   {
     id: 4,
-    title: "Fashion",
-    items: "1,300+ items",
-    color:"#F44336",
-    icon: <GiHighHeel />,
+    title: "Furniture",
+    items: "200+ items",
+    color: "#795548",
+    icon: <MdChair />,
   },
 ];
 
 const PopularCategories = () => {
+  const navigate = useNavigate();
 
-  // Load Poppins font like Hero
   useEffect(() => {
     const link = document.createElement("link");
     link.href =
@@ -49,42 +49,42 @@ const PopularCategories = () => {
   return (
     <div className="bg-gray-100 py-16 px-6 font-[Poppins]">
       <div className="max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-semibold text-gray-800">
-          <span className="text-[#4a90e2] italic">Popular</span> Categories
-        </h2>
-        <p className="text-gray-500 mt-2">
-          Find what you need across different product categories
-        </p>
-      </div>
 
-      {/* Cards */}
-      <div className="grid md:grid-cols-4 gap-6">
-        {categories.map((cat) => (
-          <div
-            key={cat.id}
-            className="bg-gradient-to-r from-[#4a90e2] to-[#3b7cc4] rounded-xl py-10 text-center text-white shadow-md hover:scale-105 transition duration-300 cursor-pointer"
-          >
-            {/* Icon Circle */}
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-              <span style={{ color: cat.color }} className="text-3xl">
-                {cat.icon}
-              </span>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-gray-800">
+            <span className="text-[#4a90e2] italic">Popular</span> Categories
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Find what you need across different product categories
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-6">
+          {categories.map((cat) => (
+            <div
+              key={cat.id}
+              onClick={() =>
+                navigate(`/product`)
+              }
+              className="bg-gradient-to-r from-[#4a90e2] to-[#3b7cc4] rounded-xl py-10 text-center text-white shadow-md hover:scale-105 transition duration-300 cursor-pointer"
+            >
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <span style={{ color: cat.color }} className="text-3xl">
+                  {cat.icon}
+                </span>
+              </div>
+
+              <h3 className="font-semibold text-xl">
+                {cat.title}
+              </h3>
+
+              <p className="text-xs text-blue-100 mt-1">
+                {cat.items}
+              </p>
             </div>
+          ))}
+        </div>
 
-            {/* Title */}
-            <h3 className="font-semibold text-xl">
-              {cat.title}
-            </h3>
-
-            {/* Items */}
-            <p className="text-xs text-blue-100 mt-1">
-              {cat.items}
-            </p>
-          </div>
-        ))}
-      </div>
       </div>
     </div>
   );

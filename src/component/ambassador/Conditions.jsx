@@ -3,18 +3,19 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export const Conditions = () => {
   const conditions = [
-    "Must be a verified student in a Nigerian tertiary institution.",
-    "Must be active on social media or campus communities.",
-    "Must promote JigoMart with integrity — no spam or misleading promotions.",
+    "Must be a verified student in a recognized tertiary institution.",
+    "Must actively engage in campus or online student communities.",
+    "Must promote JigoMart products responsibly — no spam or misleading listings.",
+    "Must list genuine campus items like books, laptops, notes, or gadgets (if selling).",
   ];
 
   return (
     <section className="px-6 py-12">
       <div className="max-w-3xl mx-auto">
-        
+
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 space-y-6">
-          
+
           {/* Heading */}
           <h2 className="text-2xl font-bold text-[#6C4EFF]">
             Conditions
@@ -40,7 +41,7 @@ export const Conditions = () => {
           {/* Footer CTA */}
           <div className="border-t pt-4 text-center">
             <p className="text-[#6C4EFF] font-semibold text-sm">
-              Join the movement. Represent your school. Earn as you grow.
+              Join the JigoMart campus marketplace. Sell products, earn income, and grow your student network.
             </p>
           </div>
 
