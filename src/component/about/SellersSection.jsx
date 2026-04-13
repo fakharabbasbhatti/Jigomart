@@ -19,7 +19,7 @@ const SellersSection = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <section className="bg-gray-50 py-15 px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Grid */}

@@ -1,6 +1,6 @@
 export default function WhyChooseUs() {
     return (
-        <section className="bg-[#f5f7fb] py-20 px-6 font-[Poppins]">
+        <section className="bg-[#f5f7fb] py-15 px-6 font-[Poppins]">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}

@@ -5,6 +5,7 @@ import {
   updateQuantity,
   clearCart,
 } from "../../src/features/cart/cartSlice";
+
 import QuantitySelector from "../../src/component/comman/QuantitySelector";
 
 export default function CartPage() {
@@ -14,7 +15,7 @@ export default function CartPage() {
 
   const dispatch = useDispatch();
 
-  // 🟢 FORM STATE
+  // ✅ FORM STATE
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,18 +24,40 @@ export default function CartPage() {
     paymentMethod: "cod",
   });
 
+  // ✅ ERROR STATE
+  const [errors, setErrors] = useState({});
+
   const [orderPlaced, setOrderPlaced] = useState(false);
 
-  // 🟢 QUANTITY UPDATE
+  // ✅ VALIDATION
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.phone) newErrors.phone = "Phone is required";
+    if (!formData.address) newErrors.address = "Address is required";
+    if (!formData.city) newErrors.city = "City is required";
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // ✅ QUANTITY HANDLER
   const handleQuantityChange = useCallback(
     (id, qty) => {
-      if (qty < 1) return;
-      dispatch(updateQuantity({ id, quantity: qty }));
+      const safeQty = Number(qty);
+
+      if (safeQty <= 0) {
+        dispatch(removeFromCart(id));
+        return;
+      }
+
+      dispatch(updateQuantity({ id, quantity: safeQty }));
     },
     [dispatch]
   );
 
-  // 🟢 REMOVE ITEM
   const handleRemove = useCallback(
     (id) => {
       dispatch(removeFromCart(id));
@@ -42,17 +65,18 @@ export default function CartPage() {
     [dispatch]
   );
 
-  // 🟢 TOTAL
+  // ✅ TOTAL
   const total = useMemo(() => {
     return cartItems.reduce(
       (acc, item) =>
         acc +
-        Number(item.price || 0) * Number(item.quantity || 1),
+        Number(item.price || 0) *
+          Number(item.quantity || 0),
       0
     );
   }, [cartItems]);
 
-  // 🟢 FORM CHANGE
+  // ✅ INPUT CHANGE
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -60,14 +84,11 @@ export default function CartPage() {
     });
   };
 
-  // 🟢 ORDER PLACE
+  // ✅ ORDER SUBMIT
   const handleOrder = () => {
-    if (!formData.name || !formData.phone || !formData.address || !formData.city) {
-      alert("Please fill all fields");
-      return;
-    }
+    if (!validateForm()) return;
 
-    console.log("ORDER DATA:", {
+    console.log("ORDER:", {
       customer: formData,
       items: cartItems,
       total,
@@ -76,19 +97,16 @@ export default function CartPage() {
     dispatch(clearCart());
     setOrderPlaced(true);
 
-    setTimeout(() => {
-      setOrderPlaced(false);
-    }, 3000);
+    setTimeout(() => setOrderPlaced(false), 3000);
   };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-
       <h1 className="text-3xl font-bold mb-6">
         Checkout Page
       </h1>
 
-      {/* 🟢 SUCCESS MESSAGE */}
+      {/* SUCCESS MESSAGE */}
       {orderPlaced && (
         <div className="bg-green-100 text-green-700 p-4 rounded mb-4">
           🎉 Order placed successfully!
@@ -96,17 +114,14 @@ export default function CartPage() {
       )}
 
       <div className="grid md:grid-cols-2 gap-8">
-
-        {/* 🟢 LEFT SIDE - CART ITEMS */}
+        {/* LEFT SIDE */}
         <div>
           <h2 className="text-xl font-semibold mb-4">
             Cart Items
           </h2>
 
           {cartItems.length === 0 ? (
-            <p className="text-gray-500">
-              No items in cart
-            </p>
+            <p>No items in cart</p>
           ) : (
             <div className="space-y-4">
               {cartItems.map((item) => (
@@ -115,13 +130,7 @@ export default function CartPage() {
                   className="flex items-center gap-4 bg-white p-3 rounded shadow"
                 >
                   <img
-                    src={
-                      item.image ||
-                      item.thumbnail ||
-                      (item.images
-                        ? item.images[0]
-                        : "")
-                    }
+                    src={item.image}
                     className="w-16 h-16 object-cover rounded"
                   />
 
@@ -134,8 +143,9 @@ export default function CartPage() {
                       ${item.price}
                     </p>
 
+                    {/* QUANTITY */}
                     <QuantitySelector
-                      quantity={item.quantity}
+                      quantity={Number(item.quantity) || 0}
                       setQuantity={(qty) =>
                         handleQuantityChange(item.id, qty)
                       }
@@ -156,45 +166,77 @@ export default function CartPage() {
           )}
         </div>
 
-        {/* 🟢 RIGHT SIDE - FORM (ALWAYS VISIBLE) */}
+        {/* RIGHT SIDE FORM */}
         <div className="bg-white p-6 rounded shadow">
-
           <h2 className="text-xl font-semibold mb-4">
             Customer Details
           </h2>
 
+          {/* NAME */}
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
             placeholder="Full Name"
-            className="w-full mb-3 p-2 border rounded"
+            className={`w-full mb-1 p-2 border rounded ${
+              errors.name ? "border-red-500" : ""
+            }`}
           />
+          {errors.name && (
+            <p className="text-red-500 text-sm mb-2">
+              {errors.name}
+            </p>
+          )}
 
+          {/* PHONE */}
           <input
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             placeholder="Phone Number"
-            className="w-full mb-3 p-2 border rounded"
+            className={`w-full mb-1 p-2 border rounded ${
+              errors.phone ? "border-red-500" : ""
+            }`}
           />
+          {errors.phone && (
+            <p className="text-red-500 text-sm mb-2">
+              {errors.phone}
+            </p>
+          )}
 
+          {/* ADDRESS */}
           <input
             name="address"
             value={formData.address}
             onChange={handleChange}
             placeholder="Address"
-            className="w-full mb-3 p-2 border rounded"
+            className={`w-full mb-1 p-2 border rounded ${
+              errors.address ? "border-red-500" : ""
+            }`}
           />
+          {errors.address && (
+            <p className="text-red-500 text-sm mb-2">
+              {errors.address}
+            </p>
+          )}
 
+          {/* CITY */}
           <input
             name="city"
             value={formData.city}
             onChange={handleChange}
             placeholder="City"
-            className="w-full mb-3 p-2 border rounded"
+            className={`w-full mb-1 p-2 border rounded ${
+              errors.city ? "border-red-500" : ""
+            }`}
           />
+          {errors.city && (
+            <p className="text-red-500 text-sm mb-2">
+              {errors.city}
+            </p>
+          )}
 
+          {/* PAYMENT */}
           <select
             name="paymentMethod"
             value={formData.paymentMethod}
@@ -204,7 +246,9 @@ export default function CartPage() {
             <option value="cod">Cash on Delivery</option>
             <option value="card">Credit Card</option>
             <option value="jazzcash">JazzCash</option>
-            <option value="easypaisa">EasyPaisa</option>
+            <option value="easypaisa">
+              EasyPaisa
+            </option>
           </select>
 
           {/* TOTAL */}
@@ -212,10 +256,10 @@ export default function CartPage() {
             Total: ${total.toFixed(2)}
           </h3>
 
-          {/* PLACE ORDER */}
+          {/* BUTTON */}
           <button
             onClick={handleOrder}
-            className="w-full bg-blue-600 text-white py-2 rounded"
+            className="w-full bg-[#4a90e2] hover:bg-[#3b7cc4] text-white py-2 rounded"
           >
             Place Order
           </button>

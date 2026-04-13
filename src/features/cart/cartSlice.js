@@ -1,6 +1,6 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 
-// 🔥 safe localStorage
 const getCartFromStorage = () => {
   try {
     const data = localStorage.getItem("cartItems");
@@ -25,10 +25,9 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const item = action.payload;
 
-      // 🔥 IMAGE FIX
       const newItem = {
         ...item,
-        quantity: item.quantity ? Number(item.quantity) : 1,
+        quantity: Number(item.quantity) || 1,
         image:
           item.thumbnail ||
           item.image ||
@@ -50,6 +49,7 @@ const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter(
         (i) => i.id !== action.payload
       );
+
       saveToStorage(state.cartItems);
     },
 
@@ -57,7 +57,10 @@ const cartSlice = createSlice({
       const { id, quantity } = action.payload;
 
       const item = state.cartItems.find((i) => i.id === id);
-      if (item) item.quantity = Number(quantity);
+
+      if (item) {
+        item.quantity = Number(quantity) || 0;
+      }
 
       saveToStorage(state.cartItems);
     },

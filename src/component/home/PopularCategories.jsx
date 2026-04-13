@@ -47,7 +47,7 @@ const PopularCategories = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-16 px-6 font-[Poppins]">
+    <div className="bg-gray-100 py-15 px-6 font-[Poppins]">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-12">

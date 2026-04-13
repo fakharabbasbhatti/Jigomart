@@ -22,7 +22,7 @@ export default function ProductsPage() {
   return (
     <div>
 <ProductHero/>
-    <div className="bg-gray-50 min-h-screen py-10">
+    <div className="bg-gray-50 min-h-screen py-15">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Header */}

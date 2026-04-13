@@ -2,7 +2,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function Intro() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-white py-16 px-6">
+    <section className="bg-gradient-to-b from-gray-50 to-white py-15 px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Card */}

@@ -31,7 +31,7 @@ export default function ProductDetailPage() {
       <div className="max-w-6xl mx-auto mb-4">
         <button
           onClick={() => navigate("/product")}
-          className="inline-flex items-center gap-2 bg-red-600 px-5 py-2 text-sm font-medium text-white hover:bg-red-700 transition rounded-md shadow mb-5 cursor-pointer"
+          className="inline-flex items-center gap-2 bg-red-600 px-3 py-3 text-sm font-medium text-white hover:bg-red-700 transition rounded-md shadow mb-5 cursor-pointer"
         >
           ← Back to Products
         </button>

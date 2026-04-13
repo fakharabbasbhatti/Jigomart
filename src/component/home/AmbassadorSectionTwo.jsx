@@ -2,7 +2,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 export default function AmbassadorSectionTwo() {
   return (
-    <section className="bg-gradient-to-r from-[#4A90E2] to-[#7D4CDB] py-20 px-6 text-center font-[Poppins] text-white mb-20">
+    <section className="bg-gradient-to-r from-[#4A90E2] to-[#7D4CDB] px-6 text-center font-[Poppins] text-white py-15">
 
       <div className="max-w-3xl mx-auto">
 
