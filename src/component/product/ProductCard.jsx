@@ -56,14 +56,14 @@ export default function ProductCard({ product }) {
             onClick={() =>
               dispatch(addToCart({ ...product, quantity: 1 }))
             }
-            className="flex-1 border border-purple-500 text-purple-500 py-2 rounded-lg hover:bg-purple-50 transition"
+            className="flex-1 border border-purple-500 text-purple-500 py-2 rounded-lg hover:bg-purple-50 transition cursor-pointer"
           >
             Add to Cart
           </button>
 
           <Link
             to={`/product/${product.id}`}
-            className="flex-1 text-center border border-purple-500 text-purple-500 py-2 rounded-lg hover:bg-purple-50 transition"
+            className="flex-1 text-center border border-purple-500 text-purple-500 py-2 rounded-lg hover:bg-purple-50 transition cursor-pointer"
           >
             View Details
           </Link>

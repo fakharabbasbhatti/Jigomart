@@ -47,8 +47,8 @@ const Steps = () => {
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-[#6C4EFF] mb-12 text-center">
-          How JigoMart Works
+        <h2 className="text-3xl font-semibold text-gray-800 mb-12 text-center">
+          How <span className="text-blue-500">JigoMart</span> Works
         </h2>
 
         {/* Steps Grid */}

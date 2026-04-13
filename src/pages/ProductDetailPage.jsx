@@ -5,7 +5,7 @@ import { loadProductById } from "../features/products/productsSlice";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
-  const navigate = useNavigate(); // 👈 add this
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const product = useSelector(
@@ -17,44 +17,54 @@ export default function ProductDetailPage() {
   }, [id, dispatch]);
 
   if (!product) {
-    return <p className="text-center mt-10 text-lg">Loading...</p>;
+    return (
+      <p className="text-center mt-20 text-lg font-medium text-gray-600">
+        Loading product...
+      </p>
+    );
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-
+    <div className="bg-gray-100 py-6 px-4">
+      
       {/* 🔙 BACK BUTTON */}
-      <button
-        onClick={() => navigate("/product")} // 👈 apna ProductCard page ka route yahan likho
-        className="mb-4 inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black transition"
-      >
-        ← Back to Products
-      </button>
+      <div className="max-w-6xl mx-auto mb-4">
+        <button
+          onClick={() => navigate("/product")}
+          className="inline-flex items-center gap-2 bg-red-600 px-5 py-2 text-sm font-medium text-white hover:bg-red-700 transition rounded-md shadow mb-5 cursor-pointer"
+        >
+          ← Back to Products
+        </button>
+      </div>
 
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden grid md:grid-cols-2 gap-6">
+      {/* MAIN CARD */}
+      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden grid md:grid-cols-2">
         
         {/* IMAGE */}
-        <div className="w-full h-[400px] md:h-full">
+        <div className="bg-gray-200 flex items-center justify-center p-4">
           <img
             src={product.thumbnail}
             alt={product.title}
-            className="w-full h-full object-cover"
+            className="w-full h-[300px] md:h-[350px] object-contain rounded-xl"
           />
         </div>
 
         {/* DETAILS */}
-        <div className="p-6 flex flex-col justify-center">
-          <h1 className="text-3xl font-bold text-gray-800">
+        <div className="p-8 flex flex-col justify-center items-center text-center">
+          
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
             {product.title}
           </h1>
 
-          <p className="text-gray-600 mt-4 leading-relaxed">
+          <p className="text-gray-600 mt-4 leading-relaxed text-base">
             {product.description}
           </p>
 
-          <p className="text-2xl font-semibold text-green-600 mt-6">
+          {/* PRICE */}
+          <p className="text-2xl font-bold text-green-600 mt-6">
             ${product.price}
           </p>
+
         </div>
       </div>
     </div>

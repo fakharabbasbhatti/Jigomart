@@ -27,12 +27,9 @@ export default function ProductsPage() {
 
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Explore Products
+          <h2 className="text-3xl font-semibold text-gray-800">
+            Explore <span className="text-blue-500">Products</span> 
           </h2>
-          <p className="text-gray-500 mt-2">
-            Discover our latest collection
-          </p>
         </div>
 
         {/* Products Grid */}
@@ -47,7 +44,7 @@ export default function ProductsPage() {
           <div className="flex justify-center mt-12">
             <button
               onClick={loadMore}
-              className="px-10 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-md font-semibold"
+              className="px-10 py-3 bg-[#4a90e2] hover:bg-[#3b7cc4] text-white rounded-md font-semibold cursor-pointer transition duration-300"
             >
               Load More
             </button>
