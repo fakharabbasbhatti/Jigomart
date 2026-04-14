@@ -15,7 +15,7 @@ export default function AmbassadorSection() {
     }, []);
 
     return (
-        <section className="bg-gradient-to-r from-[#4A90E2] to-[#7D4CDB] py-20 px-6 text-center font-[Poppins] text-white">
+        <section className="bg-gradient-to-r from-[#4A90E2] to-[#7D4CDB] py-20 px-6 text-center font-[Poppins] text-white overflow-hidden">
 
             <div className="max-w-3xl mx-auto">
 

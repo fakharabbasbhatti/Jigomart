@@ -43,7 +43,7 @@ const Steps = () => {
   ];
 
   return (
-    <section className="py-15 px-6 bg-gray-50">
+    <section className="py-15 px-6 bg-gray-50 overflow-hidden">
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}

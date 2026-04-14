@@ -25,7 +25,7 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <div className="bg-gray-100 py-6 px-4">
+    <div className="bg-gray-100 py-6 px-4  overflow-hidden">
 
       {/* 🔙 BACK BUTTON */}
       <div className="max-w-6xl mx-auto mb-4" data-aos="fade-down">

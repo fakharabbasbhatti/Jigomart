@@ -2,7 +2,7 @@ import React from "react";
 
 const Mission = () => {
   return (
-    <section className="mt-20 px-6 py-15">
+    <section className="mt-20 px-6 py-15 overflow-hidden">
       <div className="max-w-5xl mx-auto">
 
         <div

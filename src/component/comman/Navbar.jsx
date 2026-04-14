@@ -1,83 +1,5 @@
-// import { useState } from "react";
-// import { MdOutlineShoppingCart } from "react-icons/md";
-// import { FiSearch, FiMenu, FiX } from "react-icons/fi";
-// import { Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
-
-// export default function Navbar() {
-//   const [open, setOpen] = useState(false);
-
-//   // 🟢 SAFE CART SELECTOR
-//   const cartItems = useSelector(
-//     (state) => state.cart?.cartItems || []
-//   );
-
-//   return (
-//     <div className="w-full shadow-sm bg-white sticky top-0 z-50">
-      
-//       {/* 🟢 TOP NAVBAR */}
-//       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-
-//         {/* 🟢 LOGO */}
-//         <Link to="/" className="flex items-center">
-//           <h1 className="text-xl font-bold">
-//             <span className="text-purple-600">Jigo</span>
-//             <span className="text-blue-600">Mart</span>
-//           </h1>
-//         </Link>
-
-//         {/* 🟢 DESKTOP MENU */}
-//         <div className="hidden md:flex items-center space-x-8 text-gray-600 font-medium">
-//           <Link to="/" className="hover:text-blue-600">Home</Link>
-//           <Link to="/about" className="hover:text-blue-600">About</Link>
-//           <Link to="/product" className="hover:text-blue-600">Products</Link>
-//           <Link to="/ambassador" className="hover:text-blue-600">
-//             Ambassador
-//           </Link>
-//         </div>
-
-//         {/* 🟢 RIGHT SIDE ICONS */}
-//         <div className="flex items-center space-x-4">
-
-//           {/* 🛒 CART */}
-//           <Link to="/cart" className="relative">
-//             <MdOutlineShoppingCart className="text-2xl text-gray-700" />
-
-//             {/* CART BADGE */}
-//             {cartItems.length > 0 && (
-//               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 rounded-full">
-//                 {cartItems.length}
-//               </span>
-//             )}
-//           </Link>
-
-//           {/* MOBILE MENU BUTTON */}
-//           <div
-//             className="md:hidden cursor-pointer"
-//             onClick={() => setOpen(!open)}
-//           >
-//             {open ? <FiX size={22} /> : <FiMenu size={22} />}
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* 🟢 MOBILE MENU */}
-//       {open && (
-//         <div className="md:hidden px-4 pb-4 space-y-4">
-
-//           <Link to="/" className="block">Home</Link>
-//           <Link to="/about" className="block">About</Link>
-//           <Link to="/product" className="block">Products</Link>
-//           <Link to="/ambassador" className="block">Ambassador</Link>
-   
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
-
 import { useEffect, useState } from "react";
+import logo from "../../assets/lo1.png";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NavLink, Link, useLocation } from "react-router-dom";
@@ -108,10 +30,11 @@ export default function Navbar() {
 
         {/* LOGO */}
         <Link to="/" className="flex items-center">
-          <h1 className="text-xl font-bold">
-            <span className="text-purple-600">Jigo</span>
-            <span className="text-blue-600">Mart</span>
-          </h1>
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-10 md:h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* DESKTOP MENU */}
@@ -159,7 +82,7 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         />
 
-        {/* FULL WIDTH SLIDE MENU (RIGHT → LEFT) */}
+        {/* FULL WIDTH SLIDE MENU */}
         <div
           className={`absolute top-0 right-0 h-full w-full bg-white transform transition-transform duration-300 ${
             open ? "translate-x-0" : "translate-x-full"

@@ -66,7 +66,7 @@ export default function FAQSection() {
   const faqs = activeTab === "buyers" ? buyerFaqs : sellerFaqs;
 
   return (
-    <section className="bg-[#f5f7fb] py-15 px-6 font-[Poppins]">
+    <section className="bg-[#f5f7fb] py-15 px-6 font-[Poppins] overflow-hidden">
       <div className="max-w-3xl mx-auto">
 
         {/* Top Text */}

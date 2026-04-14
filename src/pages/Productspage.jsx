@@ -23,7 +23,7 @@ export default function ProductsPage() {
 
       <ProductHero />
 
-      <div className="bg-gray-50 min-h-screen py-15">
+      <div className="bg-gray-50 min-h-screen py-15 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Header */}

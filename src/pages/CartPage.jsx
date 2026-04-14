@@ -234,7 +234,7 @@ export default function CartPage() {
 
           <button
             onClick={handleOrder}
-            className="w-full bg-[#4a90e2] hover:bg-[#3b7cc4] text-white py-2 rounded"
+            className="w-full bg-[#4a90e2] hover:bg-[#3b7cc4] text-white py-2 rounded cursor-pointer"
           >
             Place Order
           </button>

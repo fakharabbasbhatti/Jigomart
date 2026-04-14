@@ -56,7 +56,7 @@ const PopularCategories = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-15 px-6 font-[Poppins]">
+    <div className="bg-gray-100 py-15 px-6 font-[Poppins] overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Header - DIFFERENT (fade-down) */}

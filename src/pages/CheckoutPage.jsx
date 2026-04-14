@@ -133,7 +133,7 @@ export default function CheckoutPage() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-xl text-lg font-semibold hover:bg-blue-700 transition"
+          className="w-full bg-blue-600 text-white py-3 rounded-xl text-lg font-semibold hover:bg-blue-700 transition cursor-pointer"
           data-aos="fade-up"
           data-aos-delay="300"
         >

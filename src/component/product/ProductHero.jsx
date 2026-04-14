@@ -11,7 +11,7 @@ export default function ProductHero() {
   }, []);
 
   return (
-    <div className="relative w-full h-[95vh] font-[Poppins]">
+    <div className="relative w-full h-[95vh] font-[Poppins] overflow-hidden">
       
       {/* Background Image */}
       <img

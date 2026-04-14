@@ -10,7 +10,7 @@ export const Conditions = () => {
   ];
 
   return (
-    <section className="px-6 py-15">
+    <section className="px-6 py-15 overflow-hidden">
       <div className="max-w-3xl mx-auto">
 
         {/* Card */}

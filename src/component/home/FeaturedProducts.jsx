@@ -46,7 +46,7 @@ const FeaturedProducts = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-15 px-6">
+    <div className="bg-gray-100 py-15 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
