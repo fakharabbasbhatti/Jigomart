@@ -1,15 +1,31 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function WhyChooseUs() {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
+            offset: 100,
+        });
+    }, []);
+
     return (
-        <section className="bg-[#f5f7fb] py-15 px-6 font-[Poppins]">
+        <section className="bg-[#f5f7fb] py-15 px-6 font-[Poppins] overflow-hidden">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}
-                <div className="max-w-6xl mx-auto text-center mb-14">
+                <div
+                    className="max-w-6xl mx-auto text-center mb-14"
+                    data-aos="fade-up"
+                >
                     <h2 className="text-4xl font-semibold text-[#1f2937]">
                         Why Choose Us?
                     </h2>
 
-                    {/* Blue Line */}
                     <div className="flex justify-center relative">
                         <div className="w-80 h-3 border-b-1 border-blue-400 rotate-3"></div>
                     </div>
@@ -26,7 +42,11 @@ export default function WhyChooseUs() {
                     {/* Left Cards */}
                     <div className="flex flex-col gap-6">
 
-                        <div className="bg-[#3b82f6] text-white p-6 rounded-2xl shadow-lg">
+                        <div
+                            data-aos="fade-right"
+                            data-aos-delay="100"
+                            className="bg-[#3b82f6] text-white p-6 rounded-2xl shadow-lg"
+                        >
                             <h3 className="font-semibold text-xl">
                                 Verified Product Listings
                             </h3>
@@ -36,7 +56,11 @@ export default function WhyChooseUs() {
                             </p>
                         </div>
 
-                        <div className="bg-[#3b82f6] text-white p-6 rounded-2xl shadow-lg">
+                        <div
+                            data-aos="fade-right"
+                            data-aos-delay="250"
+                            className="bg-[#3b82f6] text-white p-6 rounded-2xl shadow-lg"
+                        >
                             <h3 className="font-semibold text-xl">
                                 Buy & Sell Instantly
                             </h3>
@@ -46,7 +70,11 @@ export default function WhyChooseUs() {
                             </p>
                         </div>
 
-                        <div className="bg-[#3b82f6] text-white p-6 rounded-2xl shadow-lg">
+                        <div
+                            data-aos="fade-right"
+                            data-aos-delay="400"
+                            className="bg-[#3b82f6] text-white p-6 rounded-2xl shadow-lg"
+                        >
                             <h3 className="font-semibold text-xl">
                                 Best Prices on Campus
                             </h3>
@@ -59,7 +87,11 @@ export default function WhyChooseUs() {
                     </div>
 
                     {/* Right Image */}
-                    <div className="flex justify-center">
+                    <div
+                        className="flex justify-center"
+                        data-aos="fade-left"
+                        data-aos-delay="200"
+                    >
                         <div className="w-[330px] h-[330px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[2px] border-[#3b82f6] shadow-lg">
                             <img
                                 src="./hw.jpg"

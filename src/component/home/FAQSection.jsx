@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiPlus } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("buyers");
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+      offset: 100,
+    });
+  }, []);
 
   const buyerFaqs = [
     {
@@ -59,11 +70,19 @@ export default function FAQSection() {
       <div className="max-w-3xl mx-auto">
 
         {/* Top Text */}
-        <p className="text-start text-lg text-purple-500 italic mb-4 sm:ml-8">
+        <p
+          className="text-start text-lg text-purple-500 italic mb-4 sm:ml-8"
+          data-aos="fade-down"
+        >
           FAQ
         </p>
 
-        <h2 className="text-center text-4xl md:text-5xl font-semibold text-gray-800 mt-2">
+        {/* Heading */}
+        <h2
+          className="text-center text-4xl md:text-5xl font-semibold text-gray-800 mt-2"
+          data-aos="fade-down"
+          data-aos-delay="100"
+        >
           <span className="bg-purple-500 text-white px-3 py-1 rounded-lg">
             Frequently
           </span>{" "}
@@ -71,7 +90,11 @@ export default function FAQSection() {
         </h2>
 
         {/* Tabs */}
-        <div className="flex justify-center mt-12">
+        <div
+          className="flex justify-center mt-12"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="flex border border-blue-500 rounded-md overflow-hidden">
 
             <button
@@ -111,7 +134,12 @@ export default function FAQSection() {
             const isOpen = openIndex === index;
 
             return (
-              <div key={index} className="border-b pb-10 border-[#1F293766]">
+              <div
+                key={index}
+                data-aos="fade-left"
+                data-aos-delay={index * 120}
+                className="border-b pb-10 border-[#1F293766]"
+              >
                 <div
                   className="flex justify-between items-center cursor-pointer"
                   onClick={() => setOpenIndex(isOpen ? null : index)}

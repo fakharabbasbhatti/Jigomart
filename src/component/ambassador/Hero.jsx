@@ -12,6 +12,7 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-[95vh] font-[Poppins]">
+      
       {/* Background Image */}
       <img
         src={bgImage}
@@ -24,17 +25,28 @@ const Hero = () => {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold text-white leading-snug md:leading-tight">
+
+        {/* Heading */}
+        <h1
+          className="text-3xl sm:text-4xl md:text-6xl font-semibold text-white leading-snug md:leading-tight"
+          data-aos="fade-up"
+        >
           Become a{" "}
           <span className="text-[#4a90e2] font-bold">
             Student Ambassador
           </span>
         </h1>
 
-        <p className="mt-4 text-gray-200 max-w-xl md:max-w-2xl text-sm sm:text-base md:text-lg">
+        {/* Paragraph */}
+        <p
+          className="mt-4 text-gray-200 max-w-xl md:max-w-2xl text-sm sm:text-base md:text-lg"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
           Represent JigoMart at your university and earn rewards while growing
           the campus marketplace.
         </p>
+
       </div>
 
       {/* Bottom Gradient Bar */}

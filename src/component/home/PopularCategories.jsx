@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { GiLipstick, GiPerfumeBottle } from "react-icons/gi";
 import { FaShoppingBasket } from "react-icons/fa";
 import { MdChair } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const categories = [
   {
@@ -44,13 +46,21 @@ const PopularCategories = () => {
       "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
+
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+      offset: 100,
+    });
   }, []);
 
   return (
     <div className="bg-gray-100 py-15 px-6 font-[Poppins]">
       <div className="max-w-7xl mx-auto">
 
-        <div className="text-center mb-12">
+        {/* Header - DIFFERENT (fade-down) */}
+        <div className="text-center mb-12" data-aos="fade-down">
           <h2 className="text-3xl font-semibold text-gray-800">
             <span className="text-[#4a90e2] italic">Popular</span> Categories
           </h2>
@@ -59,16 +69,22 @@ const PopularCategories = () => {
           </p>
         </div>
 
+        {/* Cards */}
         <div className="grid md:grid-cols-4 gap-6">
-          {categories.map((cat) => (
+          {categories.map((cat, index) => (
             <div
               key={cat.id}
-              onClick={() =>
-                navigate(`/product`)
-              }
+              onClick={() => navigate(`/product`)}
+              data-aos="fade-up"
+              data-aos-delay={index * 150} // stagger
               className="bg-gradient-to-r from-[#4a90e2] to-[#3b7cc4] rounded-xl py-10 text-center text-white shadow-md hover:scale-105 transition duration-300 cursor-pointer"
             >
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+              {/* Icon (different animation inside) */}
+              <div
+                className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4"
+                data-aos="zoom-in"
+                data-aos-delay={index * 150 + 100}
+              >
                 <span style={{ color: cat.color }} className="text-3xl">
                   {cat.icon}
                 </span>

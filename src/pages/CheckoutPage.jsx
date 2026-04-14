@@ -20,12 +20,25 @@ export default function CheckoutPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+
+      {/* TITLE */}
+      <h1
+        className="text-3xl font-bold mb-6"
+        data-aos="fade-down"
+      >
+        Checkout
+      </h1>
 
       <form onSubmit={handleSubmit} className="space-y-5">
+
         {/* Customer Info */}
-        <div className="bg-white shadow-md rounded-2xl p-5 space-y-4">
-          <h2 className="text-xl font-semibold">Customer Information</h2>
+        <div
+          className="bg-white shadow-md rounded-2xl p-5 space-y-4"
+          data-aos="fade-up"
+        >
+          <h2 className="text-xl font-semibold">
+            Customer Information
+          </h2>
 
           <input
             type="text"
@@ -59,8 +72,14 @@ export default function CheckoutPage() {
         </div>
 
         {/* Payment Method */}
-        <div className="bg-white shadow-md rounded-2xl p-5 space-y-4">
-          <h2 className="text-xl font-semibold">Payment Method</h2>
+        <div
+          className="bg-white shadow-md rounded-2xl p-5 space-y-4"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <h2 className="text-xl font-semibold">
+            Payment Method
+          </h2>
 
           <label className="flex items-center gap-2">
             <input
@@ -86,16 +105,25 @@ export default function CheckoutPage() {
         </div>
 
         {/* Order Summary */}
-        <div className="bg-white shadow-md rounded-2xl p-5">
-          <h2 className="text-xl font-semibold mb-3">Order Summary</h2>
+        <div
+          className="bg-white shadow-md rounded-2xl p-5"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <h2 className="text-xl font-semibold mb-3">
+            Order Summary
+          </h2>
+
           <p className="flex justify-between">
             <span>Items Total</span>
             <span>$100</span>
           </p>
+
           <p className="flex justify-between">
             <span>Shipping</span>
             <span>$10</span>
           </p>
+
           <p className="flex justify-between font-bold text-lg mt-2">
             <span>Total</span>
             <span>$110</span>
@@ -106,9 +134,12 @@ export default function CheckoutPage() {
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-3 rounded-xl text-lg font-semibold hover:bg-blue-700 transition"
+          data-aos="fade-up"
+          data-aos-delay="300"
         >
           Confirm Order
         </button>
+
       </form>
     </div>
   );

@@ -19,14 +19,17 @@ const SellersSection = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-15 px-6">
+    <section className="bg-gray-50 py-15 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-8">
 
           {/* Sellers Card */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
+          <div
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300"
+            data-aos="fade-right"
+          >
 
             <h2 className="text-[#6C4EFF] font-bold text-xl mb-3">
               For Sellers
@@ -44,6 +47,8 @@ const SellersSection = () => {
               {sellerPoints.map((item, index) => (
                 <li
                   key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 120}
                   className="flex items-start gap-3 p-2 rounded-md hover:bg-gray-50 transition"
                 >
                   <div className="bg-[#6C4EFF]/10 p-2 rounded-full">
@@ -60,7 +65,10 @@ const SellersSection = () => {
           </div>
 
           {/* Buyers Card */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
+          <div
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300"
+            data-aos="fade-left"
+          >
 
             <h2 className="text-[#6C4EFF] font-bold text-xl mb-3">
               For Buyers
@@ -78,6 +86,8 @@ const SellersSection = () => {
               {buyerPoints.map((item, index) => (
                 <li
                   key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 120}
                   className="flex items-start gap-3 p-2 rounded-md hover:bg-gray-50 transition"
                 >
                   <div className="bg-[#6C4EFF]/10 p-2 rounded-full">

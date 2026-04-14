@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import "./App.css"; // Tailwind directives included here
+import "./App.css";
+
+// ✅ AOS IMPORT
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Components
 import Navbar from "./component/comman/Navbar";
@@ -16,9 +20,19 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 
-
 // ------------------ Layout Component ------------------
 const Layout = () => {
+
+  // ✅ GLOBAL AOS INIT
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <div>
       <Navbar />

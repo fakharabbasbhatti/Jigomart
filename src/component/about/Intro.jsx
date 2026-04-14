@@ -6,7 +6,10 @@ export default function Intro() {
       <div className="max-w-6xl mx-auto">
 
         {/* Card */}
-        <div className="bg-white shadow-md rounded-xl p-8 md:p-12 space-y-6">
+        <div
+          className="bg-white shadow-md rounded-xl p-8 md:p-12 space-y-6"
+          data-aos="fade-up"
+        >
 
           {/* Intro Text */}
           <div className="space-y-4 text-gray-700 text-[15px] leading-relaxed">
@@ -32,7 +35,11 @@ export default function Intro() {
 
           {/* Features */}
           <div className="pt-4">
-            <h3 className="font-semibold text-lg mb-4 text-gray-800">
+            <h3
+              className="font-semibold text-lg mb-4 text-gray-800"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               Why students use JigoMart:
             </h3>
 
@@ -45,6 +52,8 @@ export default function Intro() {
               ].map((item, index) => (
                 <li
                   key={index}
+                  data-aos="fade-right"
+                  data-aos-delay={index * 120}
                   className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
                 >
                   <FaCheckCircle className="text-[#6C4EFF] mt-1 text-lg flex-shrink-0" />
@@ -55,10 +64,15 @@ export default function Intro() {
           </div>
 
           {/* Footer Line */}
-          <p className="pt-4 text-gray-600 border-t">
+          <p
+            className="pt-4 text-gray-600 border-t"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             JigoMart is more than just a marketplace — it’s a student-driven ecosystem
             where buying and selling is simple, secure, and community-based.
           </p>
+
         </div>
       </div>
     </section>

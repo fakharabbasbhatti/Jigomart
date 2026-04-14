@@ -14,10 +14,16 @@ export const Conditions = () => {
       <div className="max-w-3xl mx-auto">
 
         {/* Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 space-y-6">
+        <div
+          className="bg-white rounded-2xl shadow-xl p-8 md:p-10 space-y-6"
+          data-aos="fade-up"
+        >
 
           {/* Heading */}
-          <h2 className="text-2xl font-bold text-[#6C4EFF]">
+          <h2
+            className="text-2xl font-bold text-[#6C4EFF]"
+            data-aos="fade-down"
+          >
             Conditions
           </h2>
 
@@ -26,6 +32,8 @@ export const Conditions = () => {
             {conditions.map((cond, i) => (
               <li
                 key={i}
+                data-aos="fade-right"
+                data-aos-delay={i * 120}
                 className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
               >
                 <div className="bg-[#6C4EFF]/10 p-2 rounded-full">
@@ -39,7 +47,11 @@ export const Conditions = () => {
           </ul>
 
           {/* Footer CTA */}
-          <div className="border-t pt-4 text-center">
+          <div
+            className="border-t pt-4 text-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <p className="text-[#6C4EFF] font-semibold text-sm">
               Join the JigoMart campus marketplace. Sell products, earn income, and grow your student network.
             </p>

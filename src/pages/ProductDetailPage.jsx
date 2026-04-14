@@ -26,9 +26,9 @@ export default function ProductDetailPage() {
 
   return (
     <div className="bg-gray-100 py-6 px-4">
-      
+
       {/* 🔙 BACK BUTTON */}
-      <div className="max-w-6xl mx-auto mb-4">
+      <div className="max-w-6xl mx-auto mb-4" data-aos="fade-down">
         <button
           onClick={() => navigate("/product")}
           className="inline-flex items-center gap-2 bg-red-600 px-3 py-3 text-sm font-medium text-white hover:bg-red-700 transition rounded-md shadow mb-5 cursor-pointer"
@@ -38,10 +38,16 @@ export default function ProductDetailPage() {
       </div>
 
       {/* MAIN CARD */}
-      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden grid md:grid-cols-2">
-        
+      <div
+        className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden grid md:grid-cols-2"
+        data-aos="fade-up"
+      >
+
         {/* IMAGE */}
-        <div className="bg-gray-200 flex items-center justify-center p-4">
+        <div
+          className="bg-gray-200 flex items-center justify-center p-4"
+          data-aos="fade-right"
+        >
           <img
             src={product.thumbnail}
             alt={product.title}
@@ -50,8 +56,11 @@ export default function ProductDetailPage() {
         </div>
 
         {/* DETAILS */}
-        <div className="p-8 flex flex-col justify-center items-center text-center">
-          
+        <div
+          className="p-8 flex flex-col justify-center items-center text-center"
+          data-aos="fade-left"
+        >
+
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
             {product.title}
           </h1>
@@ -66,6 +75,7 @@ export default function ProductDetailPage() {
           </p>
 
         </div>
+
       </div>
     </div>
   );

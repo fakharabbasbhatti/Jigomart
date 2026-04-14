@@ -8,8 +8,10 @@ export default function ProductCard({ product }) {
   const dispatch = useDispatch();
 
   return (
-    
-    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <div
+      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"
+      data-aos="fade-up"
+    >
       
       {/* IMAGE */}
       <div className="relative">
@@ -21,7 +23,7 @@ export default function ProductCard({ product }) {
           />
         </Link>
 
-        {/* ⭐ Rating (agar API me ho warna default dikha do) */}
+        {/* ⭐ Rating */}
         <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-full flex items-center gap-1 text-sm shadow">
           <FaStar className="text-yellow-400" />
           {product.rating || 4.5}
@@ -30,13 +32,13 @@ export default function ProductCard({ product }) {
 
       {/* CONTENT */}
       <div className="p-4">
+
         <Link to={`/product/${product.id}`}>
           <h3 className="font-semibold text-gray-800">
             {product.title}
           </h3>
         </Link>
 
-        {/* 👇 optional fields (agar available ho) */}
         <p className="text-sm text-gray-500 mt-1">
           {product.brand || "Unknown Seller"}
         </p>
@@ -52,6 +54,7 @@ export default function ProductCard({ product }) {
 
         {/* BUTTONS */}
         <div className="flex gap-3 mt-4">
+
           <button
             onClick={() =>
               dispatch(addToCart({ ...product, quantity: 1 }))
@@ -67,7 +70,9 @@ export default function ProductCard({ product }) {
           >
             View Details
           </Link>
+
         </div>
+
       </div>
     </div>
   );

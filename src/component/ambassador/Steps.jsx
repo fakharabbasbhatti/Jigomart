@@ -47,15 +47,21 @@ const Steps = () => {
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <h2 className="text-3xl font-semibold text-gray-800 mb-12 text-center">
+        <h2
+          className="text-3xl font-semibold text-gray-800 mb-12 text-center"
+          data-aos="fade-down"
+        >
           How <span className="text-blue-500">JigoMart</span> Works
         </h2>
 
         {/* Steps Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {steps.map((step, i) => (
             <div
               key={i}
+              data-aos="fade-up"
+              data-aos-delay={i * 120}
               className="relative bg-[#1F2937] rounded-xl shadow-lg p-6 hover:shadow-2xl transition cursor-pointer group"
             >
 
@@ -79,6 +85,7 @@ const Steps = () => {
 
             </div>
           ))}
+
         </div>
       </div>
     </section>

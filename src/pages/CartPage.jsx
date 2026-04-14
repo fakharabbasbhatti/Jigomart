@@ -15,7 +15,6 @@ export default function CartPage() {
 
   const dispatch = useDispatch();
 
-  // ✅ FORM STATE
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -24,12 +23,9 @@ export default function CartPage() {
     paymentMethod: "cod",
   });
 
-  // ✅ ERROR STATE
   const [errors, setErrors] = useState({});
-
   const [orderPlaced, setOrderPlaced] = useState(false);
 
-  // ✅ VALIDATION
   const validateForm = () => {
     const newErrors = {};
 
@@ -39,11 +35,9 @@ export default function CartPage() {
     if (!formData.city) newErrors.city = "City is required";
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
-  // ✅ QUANTITY HANDLER
   const handleQuantityChange = useCallback(
     (id, qty) => {
       const safeQty = Number(qty);
@@ -65,7 +59,6 @@ export default function CartPage() {
     [dispatch]
   );
 
-  // ✅ TOTAL
   const total = useMemo(() => {
     return cartItems.reduce(
       (acc, item) =>
@@ -76,7 +69,6 @@ export default function CartPage() {
     );
   }, [cartItems]);
 
-  // ✅ INPUT CHANGE
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -84,15 +76,8 @@ export default function CartPage() {
     });
   };
 
-  // ✅ ORDER SUBMIT
   const handleOrder = () => {
     if (!validateForm()) return;
-
-    console.log("ORDER:", {
-      customer: formData,
-      items: cartItems,
-      total,
-    });
 
     dispatch(clearCart());
     setOrderPlaced(true);
@@ -101,22 +86,35 @@ export default function CartPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">
+    <div className="max-w-6xl mx-auto px-4 py-8 overflow-hidden">
+
+      {/* TITLE */}
+      <h1
+        className="text-3xl font-bold mb-6"
+        data-aos="fade-down"
+      >
         Checkout Page
       </h1>
 
-      {/* SUCCESS MESSAGE */}
+      {/* SUCCESS */}
       {orderPlaced && (
-        <div className="bg-green-100 text-green-700 p-4 rounded mb-4">
+        <div
+          className="bg-green-100 text-green-700 p-4 rounded mb-4"
+          data-aos="fade-in"
+        >
           🎉 Order placed successfully!
         </div>
       )}
 
       <div className="grid md:grid-cols-2 gap-8">
+
         {/* LEFT SIDE */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">
+
+          <h2
+            className="text-xl font-semibold mb-4"
+            data-aos="fade-right"
+          >
             Cart Items
           </h2>
 
@@ -124,10 +122,13 @@ export default function CartPage() {
             <p>No items in cart</p>
           ) : (
             <div className="space-y-4">
-              {cartItems.map((item) => (
+
+              {cartItems.map((item, index) => (
                 <div
                   key={item.id}
                   className="flex items-center gap-4 bg-white p-3 rounded shadow"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 80}
                 >
                   <img
                     src={item.image}
@@ -143,7 +144,6 @@ export default function CartPage() {
                       ${item.price}
                     </p>
 
-                    {/* QUANTITY */}
                     <QuantitySelector
                       quantity={Number(item.quantity) || 0}
                       setQuantity={(qty) =>
@@ -153,26 +153,29 @@ export default function CartPage() {
                   </div>
 
                   <button
-                    onClick={() =>
-                      handleRemove(item.id)
-                    }
+                    onClick={() => handleRemove(item.id)}
                     className="text-red-500"
                   >
                     Remove
                   </button>
                 </div>
               ))}
+
             </div>
           )}
+
         </div>
 
-        {/* RIGHT SIDE FORM */}
-        <div className="bg-white p-6 rounded shadow">
+        {/* RIGHT SIDE */}
+        <div
+          className="bg-white p-6 rounded shadow"
+          data-aos="fade-left"
+        >
+
           <h2 className="text-xl font-semibold mb-4">
             Customer Details
           </h2>
 
-          {/* NAME */}
           <input
             name="name"
             value={formData.name}
@@ -182,13 +185,7 @@ export default function CartPage() {
               errors.name ? "border-red-500" : ""
             }`}
           />
-          {errors.name && (
-            <p className="text-red-500 text-sm mb-2">
-              {errors.name}
-            </p>
-          )}
 
-          {/* PHONE */}
           <input
             name="phone"
             value={formData.phone}
@@ -198,13 +195,7 @@ export default function CartPage() {
               errors.phone ? "border-red-500" : ""
             }`}
           />
-          {errors.phone && (
-            <p className="text-red-500 text-sm mb-2">
-              {errors.phone}
-            </p>
-          )}
 
-          {/* ADDRESS */}
           <input
             name="address"
             value={formData.address}
@@ -214,13 +205,7 @@ export default function CartPage() {
               errors.address ? "border-red-500" : ""
             }`}
           />
-          {errors.address && (
-            <p className="text-red-500 text-sm mb-2">
-              {errors.address}
-            </p>
-          )}
 
-          {/* CITY */}
           <input
             name="city"
             value={formData.city}
@@ -230,13 +215,7 @@ export default function CartPage() {
               errors.city ? "border-red-500" : ""
             }`}
           />
-          {errors.city && (
-            <p className="text-red-500 text-sm mb-2">
-              {errors.city}
-            </p>
-          )}
 
-          {/* PAYMENT */}
           <select
             name="paymentMethod"
             value={formData.paymentMethod}
@@ -246,24 +225,22 @@ export default function CartPage() {
             <option value="cod">Cash on Delivery</option>
             <option value="card">Credit Card</option>
             <option value="jazzcash">JazzCash</option>
-            <option value="easypaisa">
-              EasyPaisa
-            </option>
+            <option value="easypaisa">EasyPaisa</option>
           </select>
 
-          {/* TOTAL */}
           <h3 className="text-lg font-bold mb-4">
             Total: ${total.toFixed(2)}
           </h3>
 
-          {/* BUTTON */}
           <button
             onClick={handleOrder}
             className="w-full bg-[#4a90e2] hover:bg-[#3b7cc4] text-white py-2 rounded"
           >
             Place Order
           </button>
+
         </div>
+
       </div>
     </div>
   );
