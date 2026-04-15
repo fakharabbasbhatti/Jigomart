@@ -18,7 +18,11 @@ import Ambassador from "./pages/Ambassador";
 import Productspage from "./pages/Productspage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
-import CheckoutPage from "./pages/CheckoutPage";
+import { PrivacyPolicy } from "./component/comman/PrivacyPolicy";
+import { TermsConditions } from "./component/comman/TermsConditions";
+import { ReturnPolicy } from "./component/comman/ReturnPolicy";
+import { HelpCenter } from "./component/comman/HelpCenter";
+import { Support } from "./component/comman/Support";
 
 // ------------------ Layout Component ------------------
 const Layout = () => {
@@ -56,7 +60,11 @@ const router = createBrowserRouter([
       { path: "product", element: <Productspage /> },
       { path: "product/:id", element: <ProductDetailPage /> },
       { path: "cart", element: <CartPage /> },
-      // { path: "checkout", element: <CheckoutPage /> }
+      { path: "privacypolicy", element: <PrivacyPolicy /> },
+      { path: "termsconditions", element: <TermsConditions /> },
+      { path: "returnpolicy", element: <ReturnPolicy /> },
+      { path: "helpcenter", element: <HelpCenter /> },
+      { path: "support", element: <Support /> }
     ],
   },
 ]);

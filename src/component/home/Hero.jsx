@@ -67,13 +67,13 @@ export default function Hero() {
           data-aos-delay="300"
         >
           <Link to="/product">
-            <button className="flex items-center gap-2 bg-[#4a90e2] text-white px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
+            <button className="flex items-center gap-2 bg-[#4a90e2] text-white px-6 py-3 rounded-lg font-medium hover:scale-105 transition cursor-pointer">
               Become a Seller <MdOutlineShoppingCart />
             </button>
           </Link>
 
           <Link to="/ambassador">
-            <button className="px-6 py-3 rounded-lg border border-white text-white hover:bg-white hover:text-black hover:scale-105 transition">
+            <button className="px-6 py-3 rounded-lg border border-white text-white hover:bg-white hover:text-black hover:scale-105 transition cursor-pointer">
               Ambassador
             </button>
           </Link>
